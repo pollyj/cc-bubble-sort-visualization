@@ -9,6 +9,7 @@ const Sort = require("./Sort");
 // A link to our styles!
 require("./index.css");
 
+class Sort {}
 const sort = new Sort();
 sort.sort();
 
