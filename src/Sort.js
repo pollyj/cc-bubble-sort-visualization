@@ -13,8 +13,7 @@ class BubbleSort {
       }
       sortedNum += 1;
     }
-    console.log(this.array);
-    return this.array;
+    return array;
   }
 
   swap(array, index1, index2) {
@@ -54,6 +53,7 @@ const arrayTest = [
   34,
 ];
 const bubble = new BubbleSort(arrayTest);
-bubble.sort();
+let test = bubble.sort();
+console.log(test);
 
 module.exports = BubbleSort;

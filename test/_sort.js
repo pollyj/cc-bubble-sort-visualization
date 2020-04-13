@@ -1,11 +1,26 @@
-const Sort = require("../src/Sort");
+const BubbleSort = require("../src/Sort");
 const { expect } = require("chai");
 
-describe("Sort", () => {
-  it("should be a function", () => {
-    expect(Sort).to.be.a("function");
+let bubble;
+let array;
+
+const sortedArray = [-5, 5, 9, 9, 18, 23, 37, 49, 65, 99, 1500];
+
+describe("BubbleSort", () => {
+  beforeEach(() => {
+    array = [9, 18, 5, 9, 37, -5, 99, 1500, 65, 23, 49];
+    bubble = new BubbleSort(array);
   });
-  it("should have a sort method", () => {
-    expect(Sort.prototype.sort).to.be.a("function");
+
+  describe("the sort method", () => {
+    it("should be a function", () => {
+      expect(BubbleSort).to.be.a("function");
+    });
+    it("should have a bubble sort method", () => {
+      expect(BubbleSort.prototype.sort).to.be.a("function");
+    });
+    it("should sort numbers in an array numerically", () => {
+      expect(bubble.sort(array)).to.deep.equal(sortedArray);
+    });
   });
 });
