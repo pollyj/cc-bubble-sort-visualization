@@ -1,13 +1,18 @@
-class BubbleSort {
-  constructor(array) {
+class Sort {
+  constructor(array, chart) {
     this.array = array;
+    this.chart = chart;
+    this.swapPairs = [];
   }
+
   sort(array) {
+    this.swapPairs = [];
     array = this.array;
     let sortedNum = 0;
     for (let j = 0; j <= array.length; j++) {
       for (let i = 0; i <= array.length - sortedNum; i++) {
         if (array[i] > array[i + 1]) {
+          this.swapPairs.push([i, i + 1]);
           this.swap(array, i, i + 1);
         }
       }
@@ -25,32 +30,4 @@ class BubbleSort {
   }
 }
 
-const arrayTest = [
-  1,
-  7,
-  3,
-  20,
-  -4,
-  15,
-  105,
-  57,
-  94,
-  5,
-  72,
-  26,
-  0,
-  173,
-  4,
-  75,
-  46,
-  35,
-  76,
-  13,
-  834,
-  95,
-  20,
-  46,
-  34,
-];
-
-module.exports = BubbleSort;
+module.exports = Sort;
