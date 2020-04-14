@@ -103,20 +103,12 @@ const swapColors = (array) => {
   ];
 };
 
-displayBubbleAlgorithm();
+// displayBubbleAlgorithm();
 
 const form = document.getElementById("user-input");
 
 form.addEventListener("submit", (e) => {
-  console.log(e);
-  let number;
-  if (e.target.elements[0].value === "") {
-    number = 15;
-  } else {
-    number = e.target.elements[0].value;
-  }
-
-  console.log("number:", number);
-  refreshNumberArray(number);
+  e.preventDefault();
   displayBubbleAlgorithm();
+  console.log(e);
 });
