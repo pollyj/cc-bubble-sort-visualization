@@ -63,6 +63,7 @@ const myChart = new Chart(ctx, {
 
 // sort array
 const bubbleSort = new BubbleSort(arrayToSort);
+
 const displayBubbleAlgorithm = () => {
   bubbleSort.sort();
   console.log(bubbleSort.swapPairs);
