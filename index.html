@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Visualising Sorting Algorithms</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div id="title">
+          <h1>Visualising Sorting Algorithms</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="select-bar">
+          <button id="sort-button" type="button" class="btn btn-light btn-sm">
+            Sort
+          </button>
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center">
+        <div
+          class="chart-container"
+          style="position: relative; height:40vw; width:80vw"
+        >
+          <canvas id="myChart" width="1000" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/public/bundle.js"></script>
+  </body>
+</html>
