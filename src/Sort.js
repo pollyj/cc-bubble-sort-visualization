@@ -1,7 +1,6 @@
 class Sort {
-  constructor(array, chart) {
+  constructor(array) {
     this.array = array;
-    this.chart = chart;
     this.swapPairs = [];
   }
 
