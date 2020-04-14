@@ -1,4 +1,4 @@
-class Sort {
+class BubbleSort {
   constructor(array) {
     this.array = array;
     this.arrayCaptures = [];
@@ -35,4 +35,4 @@ class Sort {
   }
 }
 
-module.exports = Sort;
+module.exports = BubbleSort;

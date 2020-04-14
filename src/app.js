@@ -6,59 +6,35 @@ const randomColor = require("randomcolor");
 // A link to our styles!
 require("./index.css");
 
-const refreshNumberArray = (total = 15) => {
-  arrayToSort = [];
+class Sort {}
+const sort = new Sort();
+sort.sort();
 
-  const randomNumberGenerator = () => {
-    return Math.ceil(Math.random() * 100);
-  };
-  for (let i = 0; i < total; i++) {
-    arrayToSort.push(randomNumberGenerator());
-  }
-};
+function createCheesyTitle(slogan) {
+  const container = document.createElement("h1");
+  const textNode = document.createTextNode(slogan);
+  container.appendChild(textNode);
+  return container;
+}
 
-let arrayToSort = [];
-refreshNumberArray(15);
-let colorArray = randomColor({ count: arrayToSort.length });
+const title = createCheesyTitle(sort.returnValue("Re-Engineer Yourself"));
+document.getElementById("title").appendChild(title);
 
-// const color =
+/*
+    An simple example of how you can make your project a bit more
+    interactive, if you would like.
 
-let barChartData = {
-  labels: arrayToSort,
-  datasets: [
-    {
-      label: "Dataset 1",
-      backgroundColor: colorArray,
-      data: arrayToSort,
-    },
-  ],
-};
+    In our `index.html` page, we have a short form.
+    Here is the code that talks to it.
+  */
+function changeTitle(event) {
+  event.preventDefault();
+  // console.log('What is an event?', event);
+}
 
-const ctx = document.getElementById("myChart");
-const myChart = new Chart(ctx, {
-  type: "bar",
-  data: barChartData,
-  options: {
-    scales: {
-      xAxes: [
-        {
-          gridLines: {
-            drawOnChartArea: false,
-          },
-        },
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            drawOnChartArea: false,
-          },
-        },
-      ],
-    },
-    legend: {
-      display: false,
-    },
-  },
+const form = document.querySelector("form");
+document.addEventListener("DOMContentLoaded", () => {
+  form.onsubmit = changeTitle;
 });
 
 // sort array
