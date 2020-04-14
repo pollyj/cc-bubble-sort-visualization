@@ -9,6 +9,11 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Visualising Sorting Algorithms</title>
   </head>
 
@@ -20,20 +25,30 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="select-bar">
-          <button id="sort-button" type="button" class="btn btn-light btn-sm">
-            Sort
-          </button>
-        </div>
-      </div>
-
-      <div class="row justify-content-center align-items-center">
+      <div class="row no-gutters justify-content-center align-items-center">
         <div
+          id="chart-container"
           class="chart-container"
           style="position: relative; height:40vw; width:80vw"
         >
           <canvas id="myChart" width="1000" height="400"></canvas>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend"></div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+              Button
+            </button>
+          </div>
         </div>
       </div>
     </div>
