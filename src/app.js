@@ -7,7 +7,7 @@ const randomColor = require("randomcolor");
 require("./index.css");
 
 const refreshNumberArray = (total = 15) => {
-  arrayToSort = [];
+  arrayToSort = new Array();
 
   const randomNumberGenerator = () => {
     return Math.ceil(Math.random() * 100);
@@ -18,14 +18,12 @@ const refreshNumberArray = (total = 15) => {
 };
 
 let arrayToSort = [];
-refreshNumberArray();
+refreshNumberArray(17);
 let colorArray = randomColor({
   count: arrayToSort.length,
   luminosity: "light",
-  hue: "pink",
+  hue: "green",
 });
-
-// const color =
 
 let barChartData = {
   labels: arrayToSort,
@@ -72,7 +70,7 @@ const bubbleSort = new BubbleSort(arrayToSort);
 const displayBubbleAlgorithm = () => {
   bubbleSort.sort();
 
-  const timer = setInterval(updateData, 500);
+  const timer = setInterval(updateData, 300);
 
   function updateData() {
     let arrayCaptures = bubbleSort.arrayCaptures;
@@ -83,7 +81,7 @@ const displayBubbleAlgorithm = () => {
     barChartData.datasets[0].data = arrayCaptures[0];
     barChartData.labels = arrayCaptures[0];
     swapColors(bubbleSort.swapPairs[0]);
-    updateChart(400);
+    updateChart(300);
     arrayCaptures.shift();
     bubbleSort.swapPairs.shift();
   }
@@ -106,3 +104,19 @@ const swapColors = (array) => {
 };
 
 displayBubbleAlgorithm();
+
+const form = document.getElementById("user-input");
+
+form.addEventListener("submit", (e) => {
+  console.log(e);
+  let number;
+  if (e.target.elements[0].value === "") {
+    number = 15;
+  } else {
+    number = e.target.elements[0].value;
+  }
+
+  console.log("number:", number);
+  refreshNumberArray(number);
+  displayBubbleAlgorithm();
+});

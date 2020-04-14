@@ -9,25 +9,26 @@ h1 {
   font-size: 2em;
 }
 
-label {
+form {
+  padding-bottom: 20px;
   padding-left: 50px;
   font-size: 0.8em;
 }
 
-form {
-  padding-bottom: 20px;
+input {
+  width: 300px;
 }
 
-.form-control {
-  background-color: #273241;
+.form-inline {
+  max-width: 400px;
 }
 
 .chart-container {
   border-radius: 8px;
-  padding: 60px 30px 30px 30px;
+  padding: 60px 30px 0px 30px;
   margin-bottom: 1.5em;
   background-color: #273241;
-  width: 700px;
+  max-height: 600px;
   display: inline-block;
   box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2);
 }
