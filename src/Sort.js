@@ -1,11 +1,12 @@
 class Sort {
   constructor(array) {
     this.array = array;
+    this.arrayCaptures = [];
     this.swapPairs = [];
   }
 
   sort(array) {
-    this.swapPairs = [];
+    this.arrayCaptures = [];
     array = this.array;
     let sortedNum = 0;
     for (let j = 0; j <= array.length; j++) {
@@ -13,6 +14,11 @@ class Sort {
         if (array[i] > array[i + 1]) {
           this.swapPairs.push([i, i + 1]);
           this.swap(array, i, i + 1);
+          let temp = [];
+          array.forEach((element) => {
+            temp.push(element);
+          });
+          this.arrayCaptures.push(temp);
         }
       }
       sortedNum += 1;

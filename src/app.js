@@ -1,12 +1,13 @@
 // How can we use require here if it's frontend? We can thank webpack.
 const BubbleSort = require("./Sort");
 const Chart = require("chart.js");
+const randomColor = require("randomcolor");
 
 // A link to our styles!
 require("./index.css");
 
-const refreshNumberArray = (total = 20) => {
-  arrayToSort.forEach((element) => arrayToSort.pop());
+const refreshNumberArray = (total = 15) => {
+  arrayToSort = [];
 
   const randomNumberGenerator = () => {
     return Math.ceil(Math.random() * 100);
@@ -16,8 +17,9 @@ const refreshNumberArray = (total = 20) => {
   }
 };
 
-const arrayToSort = [];
-refreshNumberArray(5);
+let arrayToSort = [];
+refreshNumberArray(15);
+let colorArray = randomColor({ count: arrayToSort.length });
 
 // const color =
 
@@ -26,7 +28,7 @@ let barChartData = {
   datasets: [
     {
       label: "Dataset 1",
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      backgroundColor: colorArray,
       data: arrayToSort,
     },
   ],
@@ -63,80 +65,65 @@ const myChart = new Chart(ctx, {
 const bubbleSort = new BubbleSort(arrayToSort);
 const displayBubbleAlgorithm = () => {
   bubbleSort.sort();
+  console.log(bubbleSort.swapPairs);
 
-  let timer = true;
-  const flipTimer = () => (timer = !timer);
-  const restartTimeout = () => {
-    setTimeout(flipTimer, 500);
-  };
+  let arrayCaptures = bubbleSort.arrayCaptures;
+  console.log("bubbleSort.arrayCaptures:", bubbleSort.arrayCaptures);
 
   const interval = () => {
     setInterval(() => {
-      if (!bubbleSort.swapPairs) {
-        // need to stop interval timer here
-        clearInterval(interval);
-        return "hi";
-      }
-      if (timer) {
-        console.log(bubbleSort.swapPairs[0]);
-        timer = false;
-        bubbleSort.swapPairs.shift(bubbleSort.swapPairs[0]);
-        restartTimeout();
-      }
-    }, 200);
+      // update data
+      barChartData.datasets[0].data = arrayCaptures[0];
+      barChartData.labels = arrayCaptures[0];
+      swapColors(bubbleSort.swapPairs[0]);
+      updateChart(400);
+      arrayCaptures.shift();
+      bubbleSort.swapPairs.shift();
+    }, 500);
   };
   interval();
 };
 
-const swapPairOnChart = (index1, index2) => {
-  console.log("index1:", index1);
-  console.log("index2:", index2);
-  highlightBarColor(index1, index2);
-  let temp = myChart.data.datasets[0].data[index1];
-  console.log("myChart.data.datasets[0].data:", myChart.data.datasets[0].data);
-  myChart.data.datasets[0].data[index1] = myChart.data.datasets[0].data[index2];
-  myChart.data.datasets[0].data[index2] = temp;
-
-  updateChart();
-
-  revertBarColor(index1, index2);
-
-  // [array[index1], array[index2]] = [array[index2], array[index1]];
-  // myChart.data.datasets[0].data[index2] = exampleArray[index1];
-  // updateChart();
+const updateChart = (time) => {
+  console.log("updating chart");
+  return myChart.update({
+    duration: time,
+    easing: "linear",
+    lazy: true,
+  });
 };
 
-// bubbleSort.swapPairs.forEach((pair) => {
-//   console.log(pair[0], pair[1]);
-//   setTimeout(swapPairOnChart(pair[0], pair[1]), 2000);
-//   // swapPairOnChart(pair[0], pair[1]);
-// });
+const swapPairOnChart = (index1, index2) => {
+  // highlightBarColor(index1, index2);
+  let temp = barChartData.datasets[0].data[index1];
+  barChartData.datasets[0].data[index1] = barChartData.datasets[0].data[index2];
+  barChartData.datasets[0].data[index2] = temp;
+
+  updateChart();
+  // revertBarColor(index1, index2);
+};
+
+const swapColors = (array) => {
+  [colorArray[array[0]], colorArray[array[1]]] = [
+    colorArray[array[1]],
+    colorArray[array[0]],
+  ];
+};
+
 displayBubbleAlgorithm();
 
-// const highlightBarColor = (index1, index2) => {
-//   const swapBarColor = "rgba(24, 23, 108, 0.2)";
-//   colorArray[index1] = swapBarColor;
-//   colorArray[index2] = swapBarColor;
-//   myChart.data.datasets[0].backgroundColor = colorArray;
-// };
+const changeBarColor = (index1, index2, color) => {
+  const swapBarColor = "rgba(24, 23, 108, 0.2)";
+  barChartData.datasets[0].backgroundColor[index1] = color;
+  barChartData.datasets[0].backgroundColor[index2] = color;
+};
 
-// const revertBarColor = (index1, index2) => {
-//   const regularBarColor = "rgba(255, 99, 132, 0.2)";
-//   colorArray[index1] = regularBarColor;
-//   colorArray[index2] = regularBarColor;
-//   myChart.data.datasets[0].backgroundColor = colorArray;
-// };
-
-// const sort = new Sort(exampleArray);
-
-// const displayBubbleAlgorithm = () => {
-//   sort.sort();
-//   sort.swapPairs.forEach((pair) => {
-//     console.log(pair[0], pair[1]);
-//     setTimeout(swapPairOnChart(pair[0], pair[1]), 2000);
-//     // swapPairOnChart(pair[0], pair[1]);
-//   });
-// };
+const revertBarColor = (index1, index2) => {
+  const regularBarColor = "rgba(255, 99, 132, 0.2)";
+  colorArray[index1] = regularBarColor;
+  colorArray[index2] = regularBarColor;
+  myChart.data.datasets[0].backgroundColor = colorArray;
+};
 
 // const updateChart = () => {
 //   console.log("updating chart");
