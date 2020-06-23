@@ -1,108 +1,107 @@
-# プロジェクト：ソートアルゴリズムのビジュアライゼーション
-### This was created during my time as a [Code Chrysalis](https://codechrysalis.io) Student
+# Project: Visualize Sorting Algorithms
 
-これがあなたの最初のソロプロジェクトになります！このプロジェクトでは、ソートアルゴリズムを実装し、ソートアルゴリズムに関するフロントエンドのビジュアライゼーションを作成して、クラス内でプレゼンテーションを行います。
+This will be your first solo project! For this project, you will be implementing a sorting algorithm, creating a front-end visualization of the sorting algorithm, and presenting it to your class.
 
-このソロプロジェクトは3つのパートに分かれています：
+This solo project is divided into three parts:
 
-1.  ソートアルゴリズム
-2.  ビジュアライゼーション
-3.  プレゼンテーション
+1.  The sorting algorithm
+2.  The visualization
+3.  The presentation
 
-## 達成目標
+## Objectives
 
-- DOM を操作するために、標準の Web API（`document` にあるもの）を使用する。
-  - もちろん、サードパーティのパッケージを使用しても大丈夫です。
-- ソートアルゴリズムについて、基本的な単体テストを作成する。
-- ソートアルゴリズムの仕組み、実装、およびビジュアライゼーションを説明し、洗練されたインタラクティブなプレゼンテーションを（クラスメートに対して）行う。
-- なじみのないテクノロジーを含むリポジトリを見つける。
-- ビジュアライゼーションを動作させる。
+- Use standard web APIs (from `document`) to manipulate the DOM
+  - Using third party packages is of course okay, too
+- Write basic unit tests for the sorting algorithm
+- Deliver a polished, interactive presentation (to your classmates) explaining how your sorting algorithm works, its implementation, and your visualization
+- Find your way through a repository that contains technologies you are not familiar with.
+- Making it work
 
-## 開発環境
+## Environment
 
-### はじめに
+### Getting Started
 
-このリポジトリはあなた自身のものです！始める前に、`package.json` と `app.js` からファイルの確認を行い、各ファイルのつながりをチェックしてください。
+This repository is your very own! Before you get going, take a look through the files, starting with `package.json` and `app.js` and following the trail of files!
 
-### 必要なもの
+### Global Requirements
 
 - node
 - npm
 - yarn
 
-### 依存パッケージのインストールとセットアップ
+### Installing Dependencies and Set Up
 
-依存パッケージをインストールするには：
+To install dependencies:
 
 ```bash
 $ yarn
 ```
 
-テストを実行するには：
+To run tests:
 
 ```bash
 $ yarn test
 ```
 
-とても基本的な `index.html` ファイルを提供するシンプルな Express サーバー（`app.js` にコードが記述されています）があります。 webpack を使用して、`src/` フォルダ内のすべてのコードを1つの大きなファイルにコンパイルします。
+We have a simple Express server (you can find the code in `app.js`) that is serving up our very basic `index.html` file. We are using webpack to compile all the code in our `src/` folder into one big file.
 
-`index.html` を調べて、すべてのコードをコンパイルした、1つの `.js` ファイルを確認してください。
+Go look inside `index.html` to find out what that one `.js` we have compiled all our code into is.
 
-サーバーを起動するには：
+To start the server:
 
 ```bash
 $ yarn serve
 ```
 
-コンパイルのプロセスを開始するには：
+To start the compilation process:
 
 ```bash
 $ yarn dev
 ```
 
-`yarn serve` と `yarn dev` を別々のコマンドラインウィンドウ/タブで実行する必要があります。iTerm または Terminal に 3 つのタブを用意するか、VSCode で追加のターミナルを作成することをお勧めします。
+You will need to run `yarn serve` and `yarn dev` in separate command line windows/tabs. We would suggest have three tabs in iTerm or Terminal OR creating more terminals in VSCode.
 
-変更を行った後は、必ずブラウザウィンドウを更新してください。
+Remember to refresh your browser window after you make changes.
 
-## プロジェクトの要件
+## Project Requirements
 
-### ソートアルゴリズム
+### The Sorting Algorithm
 
-ソートアルゴリズムを調査して、選びましょう。
+Research and choose a sorting algorithm.
 
-- [ ] ソートアルゴリズムを調査しましょう。
-- [ ] `test/_sort.js` にソートアルゴリズムに対する適切な単体テストを記述しましょう。
-- [ ] テストをパスし、`src/Sort.js` にソートアルゴリズムを実装しましょう。
+- [ ] Research your sorting algorithm
+- [ ] Write reasonable unit tests for your sorting algorithm in `test/_sort.js`
+- [ ] Pass your tests and implement your sorting algorithm in `src/Sort.js`
 
-#### リソース
+#### Resources
 
-- [ソートアルゴリズム - Toptal](https://www.toptal.com/developers/sorting-algorithms)
-- [ソートアルゴリズム - Brilliant](https://brilliant.org/wiki/sorting-algorithms/)
+- [Sorting Algorithms - Toptal](https://www.toptal.com/developers/sorting-algorithms)
+- [Sorting Algorithms - Brilliant](https://brilliant.org/wiki/sorting-algorithms/)
 
-### ビジュアライゼーション
+### The Visualization
 
-- [ ] あなたの選択したソートアルゴリズムをビジュアライズ化しましょう!
+- [ ] Visualize your algorithms!
 
-いくつかのヒント:
+Some tips:
 
-- コードが行うさまざまなアクション（たとえば、特定の要素の作成、非表示、値の変更など）について考えましょう。これらのアクションは、おそらく、さまざまな関数を書く上で、よいスタート地点となります。
-- クラスはこの場合、どのような役割を果たすことができますか？
-- シンプルに考えましょう。この課題に取り組める時間は、たった 2 日間しかありません。最低限の内容を実装することに集中し、改善してください。アジャイルを意識しましょう。
+- Think about the various actions your code will be doing (e.g. creating particular elements, disappearing, changing values, etc.). These actions are probably a good starting point for different functions you can write.
+- How can classes play a role here?
+- Think simple. You only have two days to work on this. Focus on doing the minimum possible and then improve. Stay agile.
 
-### プレゼンテーション
+### The Presentation
 
-**ビジュアライゼーションのプレゼンテーションを作成します。**
+**You will be creating a presentation of your visualization.**
 
-- [ ] Google ドライブにスライドを作成します。
+- [ ] Create slides in your Google Drive
 
-スライドは以下の内容をカバーする必要があります。
+The slides should cover:
 
-- [ ] ソートアルゴリズムの紹介
-- [ ] 実装方法
-- [ ] 時間計算量について
-- [ ] ビジュアライゼーションのデモ
-- [ ] 課題
-- [ ] あなたが学んだこと
-- [ ] （オプション）アルゴリズムの長所と短所
+- [ ] An introduction of your sorting algorithm
+- [ ] How it is implemented
+- [ ] What time complexities is it?
+- [ ] A Demo of your visualization
+- [ ] Challenges
+- [ ] What you learned
+- [ ] (Optional) Pros and cons of your algorithm
 
-- [ ] プレゼンテーションが規定の時間を超えないようにしてください（当番のインストラクターに確認してください）。
+- [ ] Make sure your presentation doesn't exceed the time stiplulated. (Please confirm this with the instructor on duty)
